@@ -87,6 +87,62 @@
     <div class="container">
         <h2>Get started with the {MAAS} API</h2>
         <h4>Start building apps on a galactic scale with the Mars Atmospheric Aggregation System.</h4>
+
+        <p>Our API is accessible at <a href="http://marsweather.ingenology.com">marsweather.ingenology.com</a>. Thanks to being built with Django REST Framework, it features a <a href="http://django-rest-framework.org/topics/browsable-api.html">Browsable API</a> that makes exploring the data easy. Here are a few examples to get you started:</p>
+
+        <p>The following request:</p>
+
+        <pre class='prettyprint'>curl -X GET http://marsweather.ingenology.com/v1/latest/</pre>
+
+        <p>will return a JSON object for the latest report:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"ls"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">243.7</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"min_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">64.45</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"max_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.15</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"pressure"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">9.175</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"pressure_string"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Higher"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"abs_humidity"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"wind_speed"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.0</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"wind_direction"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"E"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"atmo_opacity"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Sunny"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"season"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Month 9"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sunrise"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T12:00:00Z"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sunset"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T23:00:00Z"</span><span class="pln">
+</span><span class="pun">}</span></pre>
+
+        <p>You can filter by most report fields. For example, <code>sol</code>:</p>
+
+        <pre class="prettyprint">curl -X GET http://marsweather.ingenology.com/v1/latest/?sol=291</pre>
+
+        <p>This returns:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="pun">...
+</span><span class="pun">}</span></pre>
+
+        <p>You can also filter by terrestrial date using <code>terrestrial_date_start</code> and <code>terrestrial_date_end</code>. For example:
+
+        <pre class='prettyprint'>curl -X GET http://marsweather.ingenology.com/v1/archive/?terrestrial_date_start=2012-10-01&amp;terrestrial_date_end=2012-10-31</pre>
+
+        <p>This returns a collection of JSON objects for every weather report available for October 2012:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"count"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">29</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"next"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"</span><span class="str">http://marsweather.ingenology.com/v1/archive/?terrestrial_date_end=2012-10-31&amp;terrestrial_date_start=2012-10-01&amp;page=2</span><span class="str">"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"previous"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"results"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">...</span>
+    <span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+        <p>Our API is open sourced under the Apache license. The source code is <a href="http://github.com/ingenology/mars_weather_api">available on Github</a>
+
+        <!--
         <div class="logo_bar">
             <div class="item">
                 <a href="http://python.org/" target="_blank">
@@ -105,7 +161,11 @@
             </div>
             <div class="clear"></div>
         </div>
-        <p class="center"><a href="#" class="button center">Start building your app</a></p>
+        -->
+        <p class="center">
+            <a href="http://marsweather.ingenology.com" class="button center">Browse the API</a>
+            <a href="http://github.com/ingenology/mars_weather_api/" class="button center">Get the Code</a>
+        </p>
     </div>
 </section>
 <footer>
