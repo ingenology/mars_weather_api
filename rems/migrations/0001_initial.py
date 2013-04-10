@@ -12,7 +12,7 @@ class Migration(SchemaMigration):
         db.create_table(u'rems_report', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('terrestrial_date', self.gf('django.db.models.fields.DateTimeField')()),
+            ('terrestrial_date', self.gf('django.db.models.fields.DateField')()),
             ('sol', self.gf('django.db.models.fields.IntegerField')()),
             ('ls', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
             ('min_temp', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
@@ -37,7 +37,7 @@ class Migration(SchemaMigration):
 
     models = {
         u'rems.report': {
-            'Meta': {'object_name': 'Report'},
+            'Meta': {'ordering': "('terrestrial_date',)", 'object_name': 'Report'},
             'abs_humidity': ('django.db.models.fields.FloatField', [], {'null': 'True', 'blank': 'True'}),
             'atmo_opacity': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
@@ -51,7 +51,7 @@ class Migration(SchemaMigration):
             'sol': ('django.db.models.fields.IntegerField', [], {}),
             'sunrise': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'sunset': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'terrestrial_date': ('django.db.models.fields.DateTimeField', [], {}),
+            'terrestrial_date': ('django.db.models.fields.DateField', [], {}),
             'wind_direction': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'wind_speed': ('django.db.models.fields.FloatField', [], {'null': 'True', 'blank': 'True'})
         }

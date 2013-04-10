@@ -23,6 +23,7 @@ def time_to_datetime(dt, time):
 def process_report(report):
     "Take report data and return Report kwargs"
     tdate = parse(report.get('terrestrial_date'), fuzzy=True)
+    import ipdb; ipdb.set_trace();
     sol = report.get('sol')
     mags = report['magnitudes']
     return {

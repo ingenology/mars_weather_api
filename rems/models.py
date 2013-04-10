@@ -4,7 +4,7 @@ from django.db import models
 class Report(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
-    terrestrial_date = models.DateTimeField()
+    terrestrial_date = models.DateField()
     sol = models.IntegerField(verbose_name="Sol Number")
     ls = models.FloatField(blank=True, null=True, verbose_name="Seasonal Date")
 
@@ -20,6 +20,10 @@ class Report(models.Model):
 
     sunrise = models.DateTimeField(blank=True, null=True)
     sunset = models.DateTimeField(blank=True, null=True, help_text="It's blue")
+
+    class Meta:
+        ordering = ('-terrestrial_date', )
+        get_latest_by = ('terrestrial_date', )
 
     def __unicode__(self):
         return self.terrestrial_date.strftime('%Y%m%d')
