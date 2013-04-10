@@ -118,6 +118,11 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mars_weather.urls'
 
+REST_FRAMEWORK = {
+    'PAGINATE_BY': 10,
+    'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
+}
+
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'mars_weather.wsgi.application'
 
