@@ -115,15 +115,24 @@
 
         <p>You can filter by most report fields. For example, <code>sol</code>:</p>
 
-        <pre class="prettyprint">curl -X GET http://marsweather.ingenology.com/v1/latest/?sol=291</pre>
+        <pre class="prettyprint">curl -X GET http://marsweather.ingenology.com/v1/archive/?sol=155</pre>
 
         <p>This returns:</p>
 
 <pre class="prettyprint"><span class="pun">{</span><span class="pln">
-    </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="pun">...
+    </span><span class="str">"count"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"next"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"previous"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"results"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2012-12-10"</span><span class="pun">,</span><span class="pln"> 
+            </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
+            </span><span class="pun">...</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
 </span><span class="pun">}</span></pre>
+
+
 
         <p>You can also filter by terrestrial date using <code>terrestrial_date_start</code> and <code>terrestrial_date_end</code>. For example:
 
