@@ -1,0 +1,4 @@
+{% extends "rest_framework/base.html" %}
+
+{% block title %}{{ PROJECT_NAME }}{% endblock %}
+{% block branding %}<a href='{% url 'report_root' %}'>{{ PROJECT_NAME }}{#<span class="version">{{ version }}</span>#}</a>{% endblock %}
