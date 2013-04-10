@@ -29,15 +29,127 @@
                     </div>
                 </div>
             </a>
+            <div class="description">
+                An API built to further the development of applications that want to leverage the REMS weather data being transmitted by the Curiosity Rover on Mars.
+                <ul class="nav">
+                    <li><a href="#learn_more" class="scroll">Learn More</a></li>
+                    <li class="divider">/</li>
+                    <li><a href="#whats_possible" class="scroll">What's Possible</a></li>
+                    <li class="divider">/</li>
+                    <li><a href="#get_started" class="scroll">Get Started</a></li>
+                </ul>
+            </div>
         </div>
     </div>
+    <div class="get_started">
+        <a href="#get_started" class="scroll">
+            Get Started
+        </a>
+    </div>
 </header>
+<section class="content" id="learn_more">
+    <div class="container">
+        <h2>What exactly is the {MASS} API?</h2>
+        <p>The <span class="red">{MAAS} API</span> is an <span class="red">open source REST API</span> built to help make it easier and more efficient to build interactive applications that want to utilize the wealth of <span class="red">weather data</span> being transmitted by the <a href="http://en.wikipedia.org/wiki/Curiosity_(rover)" target="_blank">Curiosity Rover on Mars</a>. Our API is built upon the <a href="http://cab.inta-csic.es/rems/index.html" target="_blank">REMS</a> (Rover Environmental Monitoring Station) data provided by the <a href="http://www.cab.inta.es/en/inicio" target="_blank">Centro de Astrobiologia (CSIC-INTA)</a>.</p>
+        <div class="rover_image">
+            <img src="images/rover.jpg" title="Curiosity Mars Rover" />
+        </div>
+    </div>
+</section>
+<section class="stars" id="whats_possible">
+    <div class="stars_inner">
+        <div class="container">
+            <div class="right_content">
+                <div class="phone">
+                    <img src="images/phone.png" title="Mobile Ready/Compatible" />
+                </div>
+            </div>
+            <div class="left_content">
+                <h3>What's possible?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <ul>
+                    <li>Current temperature (high's and low's)</li>
+                    <li>Temperature on a previous date</li>
+                    <li>Barometric pressure</li>
+                    <li>Wind speed</li>
+                    <li>Martian date</li>
+                    <li>Martian sunrise and sunset</li>
+                    <li>Seasons</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</section>
+<section class="content" id="get_started">
+    <div class="container">
+        <h2>Get started with the {MAAS} API</h2>
+        <h4>Start building apps on a galactic scale with the Mars Atmospheric Aggregation System.</h4>
+        <div class="logo_bar">
+            <div class="item">
+                <a href="http://python.org/" target="_blank">
+                    <img src="images/python_logo.png" title="Python" />
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://djangoproject.com/" target="_blank">
+                    <img src="images/django_logo.png" title="Django" />
+                </a>
+            </div>
+            <div class="item last">
+                <a href="https://github.com/" target="_blank">
+                    <img src="images/github_logo.png" title="Git Hub" />
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <p class="center"><a href="#" class="button center">Start building your app</a></p>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="item">
+            <p>Special Thanks to:</p>
+        </div>
+        <div class="item">
+            <a href="http://spaceappschallenge.org/" target="_blank">
+                <img src="images/apps_challenge_logo.png" title="International Space Apps Challenge" />
+            </a>
+        </div>
+        <div class="item ingenology">
+            <a href="http://ingenology.com" target="_blank">
+                <img src="images/ingenology_logo.png" title="Ingenology" />
+            </a>
+        </div>
+        <div class="item">
+            <a href="http://www.nasa.gov/" target="_blank">
+                <img src="images/nasa_logo.png" title="NASA" />
+            </a>
+        </div>
+        <div class="item last">
+            <p><a href="http://cab.inta-csic.es/rems/" target="_blank">http://cab.inta-csic.es/rems/</a><br />
+            <a href="http://marsweather.com" target="_blank">http://marsweather.com</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</footer>
 
 <!-- Javascript files
 ================================================== -->
 <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
 <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
 <script src="js/jquery.modernizr.js" type="text/javascript"></script>
+<script src="js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+        $('a.scroll').smoothScroll({
+            easing: 'swing',
+            speed: 400
+        });
+    });
+</script>
 
 </body>
 </html>
