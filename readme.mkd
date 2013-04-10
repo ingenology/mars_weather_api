@@ -1,0 +1,15 @@
+# The {MAAS} API
+
+The {MAAS} API is an open source REST API built to help make it easier and more efficient to build interactive applications that want to utilize the wealth of weather data being transmitted by the [Curiosity Rover on Mars][wikipedia]. Our API is built upon the [REMS][] (Rover Environmental Monitoring Station) data provided by the [Centro de Astrobiologia (CSIC-INTA)][csic].
+
+This API is built on [Django][] and [Django REST Framework][rest].
+
+Our implementation of the API is available at [marsweather.ingenology.com][api].
+
+
+[wikipedia]: http://en.wikipedia.org/wiki/Curiosity_(rover)
+[REMS]: http://cab.inta-csic.es/rems/index.html
+[csic]: http://www.cab.inta.es/en/inicio
+[django]: https://www.djangoproject.com
+[rest]: http://django-rest-framework.org/
+[api]: http://marsweather.ingenology.com
