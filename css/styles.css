@@ -60,6 +60,14 @@ img {
     -ms-interpolation-mode: bicubic;
 }
 
+.hidden-desktop {
+    display: none;
+}
+
+.visible-desktop {
+    display: block;
+}
+
 /* #Font Styles
 ================================================== */
 
@@ -130,7 +138,7 @@ p.center {
 header {
     position: relative;
     width: 100%;
-    height: 555px;
+    height: 450px;
     background: url('../images/mars_bg.jpg') center top #000;
 }
 
@@ -214,7 +222,7 @@ header {
     position: relative;
     width: 108px;
     height: 43px;
-    top: 377px;
+    top: 272px;
     margin: 0 auto;
     background: url('../images/ribbon.png') no-repeat;
 }
@@ -319,6 +327,10 @@ footer {
     width: 100%;
     background: #111;
     padding: 20px 0;
+}
+
+footer p {
+    color: white;
 }
 
 footer .item {
