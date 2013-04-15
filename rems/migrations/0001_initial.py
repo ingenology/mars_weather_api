@@ -13,7 +13,7 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('terrestrial_date', self.gf('django.db.models.fields.DateField')()),
-            ('sol', self.gf('django.db.models.fields.IntegerField')()),
+            ('sol', self.gf('django.db.models.fields.IntegerField')(unique=True)),
             ('ls', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
             ('min_temp', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
             ('max_temp', self.gf('django.db.models.fields.FloatField')(null=True, blank=True)),
@@ -37,7 +37,7 @@ class Migration(SchemaMigration):
 
     models = {
         u'rems.report': {
-            'Meta': {'ordering': "('terrestrial_date',)", 'object_name': 'Report'},
+            'Meta': {'ordering': "('-terrestrial_date',)", 'object_name': 'Report'},
             'abs_humidity': ('django.db.models.fields.FloatField', [], {'null': 'True', 'blank': 'True'}),
             'atmo_opacity': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
@@ -48,7 +48,7 @@ class Migration(SchemaMigration):
             'pressure': ('django.db.models.fields.FloatField', [], {'null': 'True', 'blank': 'True'}),
             'pressure_string': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
             'season': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
-            'sol': ('django.db.models.fields.IntegerField', [], {}),
+            'sol': ('django.db.models.fields.IntegerField', [], {'unique': 'True'}),
             'sunrise': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'sunset': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
             'terrestrial_date': ('django.db.models.fields.DateField', [], {}),

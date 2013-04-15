@@ -5,7 +5,7 @@ class Report(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     terrestrial_date = models.DateField()
-    sol = models.IntegerField(verbose_name="Sol Number")
+    sol = models.IntegerField(verbose_name="Curiosity Sol Number", unique=True)
     ls = models.FloatField(blank=True, null=True, verbose_name="Seasonal Date")
 
     min_temp = models.FloatField(blank=True, null=True)
@@ -22,8 +22,8 @@ class Report(models.Model):
     sunset = models.DateTimeField(blank=True, null=True, help_text="It's blue")
 
     class Meta:
-        ordering = ('-terrestrial_date', )
-        get_latest_by = ('terrestrial_date', )
+        ordering = ('-sol', )
+        get_latest_by = ('sol', )
 
     def __unicode__(self):
         return self.terrestrial_date.strftime('%Y%m%d')
