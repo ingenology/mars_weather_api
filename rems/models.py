@@ -1,5 +1,7 @@
 from django.db import models
 
+from .utils import celsius_to_fahrenheit
+
 
 class Report(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -27,3 +29,11 @@ class Report(models.Model):
 
     def __unicode__(self):
         return self.terrestrial_date.strftime('%Y%m%d')
+
+    @property
+    def min_temp_fahrenheit(self):
+        return celsius_to_fahrenheit(self.min_temp)
+
+    @property
+    def max_temp_fahrenheit(self):
+        return celsius_to_fahrenheit(self.max_temp)
