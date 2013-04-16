@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="author" content="Ingenology" />
+
+<meta name="description" content="The MAAS API is an open source REST API built to help make it easier and more efficient to build interactive applications that want to utilize the wealth of weather data being transmitted by the Curiosity Rover on Mars. Our API is built upon the REMS (Rover Environmental Monitoring Station) data provided by the Centro de Astrobiologia (CSIC-INTA)." />
+<meta name="keywords" content="mars, weather, climate, atmosphere, api, information, weather history, weather applications, mars application, NASA application, NASA mars application" />
+
+<title>MAAS API</title>
+
+<link rel="stylesheet" href="{% static "home/css/styles.css" %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static "home/css/fonts.css" %}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{% static "home/css/skeleton.css" %}" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<header>
+    <div class="navigation">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo_inner">
+                    <div class="curly">
+                        {MAAS}
+                    </div>
+                    <div class="text">
+                        Mars Atmospheric Aggregation System
+                    </div>
+                </div>
+            </a>
+            <div class="description">
+                An API built to further the development of applications that want to leverage the REMS weather data being transmitted by the Curiosity Rover on Mars.
+                <ul class="nav">
+                    <li><a href="#learn_more" class="scroll">Learn More</a></li>
+                    <li class="divider">/</li>
+                    <li><a href="#whats_possible" class="scroll">What's Possible</a></li>
+                    <li class="divider">/</li>
+                    <li><a href="#get_started" class="scroll">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="get_started">
+        <a href="#get_started" class="scroll">
+            Get Started
+        </a>
+    </div>
+</header>
+<section class="content" id="learn_more">
+    <div class="container">
+        <h2>What exactly is the {MAAS} API?</h2>
+        <p class="center">The <span class="red">{MAAS} API</span> is an <span class="red">open source REST API</span> built to help make it easier and more efficient to build interactive applications that want to utilize the wealth of <span class="red">weather data</span> being transmitted by the <a href="http://en.wikipedia.org/wiki/Curiosity_(rover)" target="_blank">Curiosity Rover on Mars</a>. Our API is built upon the <a href="http://cab.inta-csic.es/rems/index.html" target="_blank">REMS</a> (Rover Environmental Monitoring Station) data provided by the <a href="http://www.cab.inta.es/en/inicio" target="_blank">Centro de Astrobiologia (CSIC-INTA)</a>.</p>
+        <div class="rover_image">
+            <img src="{% static "home/images/rover.jpg" %}" title="Curiosity Mars Rover" />
+        </div>
+    </div>
+</section>
+<section class="stars" id="whats_possible">
+    <div class="stars_inner">
+        <div class="container">
+            <div class="right_content">
+                <div class="phone">
+                    <img src="{% static "home/images/phone.png" %}" title="Mobile Ready/Compatible" />
+                </div>
+            </div>
+            <div class="left_content">
+                <h3>What's possible?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <ul>
+                    <li>Current temperature (high's and low's)</li>
+                    <li>Temperature on a previous date</li>
+                    <li>Barometric pressure</li>
+                    <li>Wind speed</li>
+                    <li>Martian date</li>
+                    <li>Martian sunrise and sunset</li>
+                    <li>Seasons</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</section>
+<section class="content" id="get_started">
+    <div class="container">
+        <h2>Get started with the {MAAS} API</h2>
+        <h4>Start building apps on a galactic scale with the Mars Atmospheric Aggregation System.</h4>
+
+        <p>Our API is accessible at <a href="http://marsweather.ingenology.com/v1/">marsweather.ingenology.com</a>. Thanks to being built with Django REST Framework, it features a <a href="http://django-rest-framework.org/topics/browsable-api.html">Browsable API</a> that makes exploring the data easy. Here are a few examples to get you started:</p>
+
+        <p>The following request:</p>
+
+        <pre class='prettyprint'>curl -X GET http://marsweather.ingenology.com/v1/latest/</pre>
+
+        <p>will return a JSON object for the latest report:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"ls"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">243.7</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"min_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">64.45</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"max_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.15</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"pressure"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">9.175</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"pressure_string"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Higher"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"abs_humidity"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"wind_speed"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.0</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"wind_direction"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"E"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"atmo_opacity"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Sunny"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"season"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Month 9"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sunrise"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T12:00:00Z"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"sunset"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T23:00:00Z"</span><span class="pln">
+</span><span class="pun">}</span></pre>
+
+        <p>You can filter by most report fields. For example, <code>sol</code>:</p>
+
+        <pre class="prettyprint">curl -X GET http://marsweather.ingenology.com/v1/archive/?sol=155</pre>
+
+        <p>This returns:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"count"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"next"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"previous"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"results"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2012-12-10"</span><span class="pun">,</span><span class="pln"> 
+            </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
+            </span><span class="pun">...</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></pre>
+
+
+
+        <p>You can also filter by terrestrial date using <code>terrestrial_date_start</code> and <code>terrestrial_date_end</code>. For example:
+
+        <pre class='prettyprint'>curl -X GET http://marsweather.ingenology.com/v1/archive/?terrestrial_date_start=2012-10-01&amp;terrestrial_date_end=2012-10-31</pre>
+
+        <p>This returns a collection of JSON objects for every weather report available for October 2012:</p>
+
+<pre class="prettyprint"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"count"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">29</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"next"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"</span><span class="str">http://marsweather.ingenology.com/v1/archive/?terrestrial_date_end=2012-10-31&amp;terrestrial_date_start=2012-10-01&amp;page=2</span><span class="str">"</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"previous"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+    </span><span class="str">"results"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="pun">...</span>
+    <span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+        <p>Our API is open sourced under the Apache license. The source code is <a href="http://github.com/ingenology/mars_weather_api">available on Github</a>
+
+        <p class="center">
+            <a href="http://marsweather.ingenology.com/v1/" class="button center">Browse the API</a>
+            <a href="http://github.com/ingenology/mars_weather_api/" class="button center">Get the Code</a>
+        </p>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <p class="center hidden-desktop">Special Thanks to:</p>
+        <div class="item visible-desktop">
+            <p>Special Thanks to:</p>
+        </div>
+        <div class="item">
+            <a href="http://spaceappschallenge.org/" target="_blank">
+                <img src="{% static "home/images/apps_challenge_logo.png" %}" title="International Space Apps Challenge" />
+            </a>
+        </div>
+        <div class="item ingenology">
+            <a href="http://ingenology.com" target="_blank">
+                <img src="{% static "home/images/ingenology_logo.png" %}" title="Ingenology" />
+            </a>
+        </div>
+        <div class="item">
+            <a href="http://www.nasa.gov/" target="_blank">
+                <img src="{% static "home/images/nasa_logo.png" %}" title="NASA" />
+            </a>
+        </div>
+        <div class="item last">
+            <p><a href="http://cab.inta-csic.es/rems/" target="_blank">http://cab.inta-csic.es/rems/</a><br />
+            <a href="http://marsweather.com" target="_blank">http://marsweather.com</a></p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</footer>
+
+<!-- Javascript files
+================================================== -->
+<script src="{% static "home/js/jquery-1.8.2.min.js" %}" type="text/javascript"></script>
+<script src="{% static "home/js/jquery.easing.1.3.js" %}" type="text/javascript"></script>
+<script src="{% static "home/js/jquery.modernizr.js" %}" type="text/javascript"></script>
+<script src="{% static "home/js/jquery.smooth-scroll.min.js" %}" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+        $('a.scroll').smoothScroll({
+            easing: 'swing',
+            speed: 400
+        });
+    });
+</script>
+
+</body>
+</html>
