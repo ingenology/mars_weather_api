@@ -2,3 +2,51 @@
 
 {% block title %}{{ PROJECT_NAME }}{% endblock %}
 {% block branding %}<a href='{% url 'report_root' %}'>{{ PROJECT_NAME }}{#<span class="version">{{ version }}</span>#}</a>{% endblock %}
+
+{% block footer %}
+{% comment %}
+Note: this is kind of stupid in many ways:
+1. There's no block in base.html that wraps around the content, so we have to throw this in the footer.
+2. 'view.get_name ==' is not the right way to do this.
+3. Django Rest framework lets you add POST forms and PUT forms, but not GET forms on list views, which as we're doing
+   here, and seems like a nice thing to have in a "browsable api". Maybe we should add this to DRF...
+{% endcomment %}
+{% if view.get_name == 'Report List' %}
+<div style="padding-bottom: 3em;">
+    <div class="well">
+        <h2>Filter Reports</h2>
+
+        <p class="text-info">Fill out the form and watch the url for examples of how to query the API.</p>
+
+        <form action="{% url "report_list" %}" method="GET" class="form-horizontal" style="width:470px;">
+
+            <div class="control-group">
+                <label class="control-label" for="inputSol">sol</label>
+                <div class="controls">
+                    <input name="sol" type="number" id="inputSol" pattern="[0-9.]+" placeholder="" value="{{ request.GET.sol }}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputStartDate">terrestrial_date_start</label>
+                <div class="controls">
+                    <input name="terrestrial_date_start" type="datetime" id="inputStartDate" placeholder="2013-01-01" value="{{ request.GET.terrestrial_date_start }}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputStartDate">terrestrial_date_end</label>
+                <div class="controls">
+                  <input name="terrestrial_date_end" type="datetime" id="inputEndDate" placeholder="2013-01-01" value="{{ request.GET.terrestrial_date_start }}">
+                </div>
+            </div>
+
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% endblock footer %}
