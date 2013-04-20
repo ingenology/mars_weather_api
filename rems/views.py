@@ -20,7 +20,7 @@ def report_root(request, format=None):
 @api_view(['GET'])
 def report_latest(request, format=None):
     latest = ReportSerializer(Report.objects.latest())
-    return Response(latest.data)
+    return Response({'report': latest.data})
 
 
 class ReportFilterSet(django_filters.FilterSet):
