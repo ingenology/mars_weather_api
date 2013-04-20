@@ -86,8 +86,10 @@ def import_marsweather():
         if ene_pattern.match(tdate):
             report_data['terrestrial_date'] = ene_pattern.sub('Jan', tdate)
 
-        # we also don't trust their sunrise and sunset times
+        # we don't trust some of their data
         report_data['magnitudes']['sunrise'] = None
         report_data['magnitudes']['sunset'] = None
+        report_data['magnitudes']['atmo_opacity'] = None
+        report_data['magnitudes']['wind_direction'] = None
 
         create_or_update_report(report_data)
