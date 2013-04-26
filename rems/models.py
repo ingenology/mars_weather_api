@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.db import models
 
 from .utils import celsius_to_fahrenheit
@@ -37,3 +39,37 @@ class Report(models.Model):
     @property
     def max_temp_fahrenheit(self):
         return celsius_to_fahrenheit(self.max_temp)
+
+
+class StatusManager(models.Manager):
+    def current_statuses(self):
+        today = (timezone
+            .now()
+            .astimezone(timezone.get_current_timezone())
+            .date()
+            )
+        return self.filter(start_date__lte=today, end_date__gte=today)
+
+
+
+class Status(models.Model):
+    """
+    A place to put announcements about transmission status.
+    i.e. "Blackout for the next two weeks"
+    """
+    start_date = models.DateField(
+        help_text="Start displaying on this date",
+        blank=True,
+        null=True,
+        )
+    end_date = models.DateField(
+        help_text="Stop displaying on this date",
+        blank=True,
+        null=True,
+        )
+    status_text = models.TextField()
+
+    objects = StatusManager()
+
+    def __unicode__(self):
+        return u"{}...".format(self.status_text[:16])

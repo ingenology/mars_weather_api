@@ -1,4 +1,4 @@
-from .models import Report
+from .models import Report, Status
 
 from rest_framework import serializers
 
@@ -27,4 +27,9 @@ class ReportSerializer(serializers.HyperlinkedModelSerializer):
             'sunrise',
             'sunset',
             )
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
+        fields = ('status_text', 'start_date', 'end_date', )
 

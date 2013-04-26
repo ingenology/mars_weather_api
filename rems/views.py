@@ -5,8 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from .models import Report
-from .serializers import ReportSerializer
+from .models import Report, Status
+from .serializers import ReportSerializer, StatusSerializer
 
 
 @api_view(['GET'])
@@ -14,6 +14,7 @@ def report_root(request, format=None):
     return Response({
         'latest': reverse('report_latest', request=request),
         'archive': reverse('report_list', request=request),
+        'status': StatusSerializer(Status.objects.current_statuses()).data,
     })
 
 
