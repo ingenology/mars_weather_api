@@ -14,7 +14,7 @@ def report_root(request, format=None):
     return Response({
         'latest': reverse('report_latest', request=request),
         'archive': reverse('report_list', request=request),
-        'status': StatusSerializer(Status.objects.current_statuses()).data,
+        'alerts': StatusSerializer(Status.objects.current_statuses()).data,
     })
 
 
