@@ -102,20 +102,24 @@
         <p>will return a JSON object for the latest report:</p>
 
 <pre class="prettyprint"><span class="pun">{</span><span class="pln">
-    </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">155</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"ls"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">243.7</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"min_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">64.45</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"max_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.15</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"pressure"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">9.175</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"pressure_string"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Higher"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"abs_humidity"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"wind_speed"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2.0</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"wind_direction"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"E"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"atmo_opacity"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Sunny"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"season"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Month 9"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"sunrise"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T12:00:00Z"</span><span class="pun">,</span><span class="pln"> 
-    </span><span class="str">"sunset"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-12-10T23:00:00Z"</span><span class="pln">
+    </span><span class="str">"report"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="str">"terrestrial_date"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-05-01"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"sol"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">261</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"ls"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">310.5</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"min_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">69.75</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"min_temp_fahrenheit"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">93.55</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"max_temp"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">4.48</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"max_temp_fahrenheit"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">23.94</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"pressure"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">868.05</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"pressure_string"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Higher"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"abs_humidity"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"wind_speed"</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"wind_direction"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"--"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"atmo_opacity"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Sunny"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"season"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Month 11"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"sunrise"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-05-01T11:00:00Z"</span><span class="pun">,</span><span class="pln"> 
+        </span><span class="str">"sunset"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"2013-05-01T22:00:00Z"</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
 </span><span class="pun">}</span></pre>
 
         <p>You can filter by most report fields. For example, <code>sol</code>:</p>
