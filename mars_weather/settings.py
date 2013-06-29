@@ -3,7 +3,12 @@ import os
 from os.path import join, normpath, dirname
 import dj_database_url
 
-DEBUG = True
+
+def bool_env(val):
+    "True if env val set to 'True' else False"
+    return os.environ.get(val, 'False') == 'True'
+
+DEBUG = bool_env('DJANGO_DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_NAME = "Mars Weather"
