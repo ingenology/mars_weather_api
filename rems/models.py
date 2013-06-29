@@ -34,11 +34,11 @@ class Report(models.Model):
 
     @property
     def min_temp_fahrenheit(self):
-        return celsius_to_fahrenheit(self.min_temp)
+        return celsius_to_fahrenheit(self.min_temp) if self.min_temp else None
 
     @property
     def max_temp_fahrenheit(self):
-        return celsius_to_fahrenheit(self.max_temp)
+        return celsius_to_fahrenheit(self.max_temp) if self.max_temp else None
 
 
 class StatusManager(models.Manager):
