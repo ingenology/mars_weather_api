@@ -126,6 +126,11 @@ ROOT_URLCONF = 'mars_weather.urls'
 REST_FRAMEWORK = {
     'PAGINATE_BY': 10,
     'FILTER_BACKEND': 'rest_framework.filters.DjangoFilterBackend',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.JSONPRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
 }
 
 # Python dotted path to the WSGI application used by Django's runserver.
