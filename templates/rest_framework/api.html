@@ -1,16 +1,20 @@
 {% extends "rest_framework/base.html" %}
 
 {% block title %}{{ PROJECT_NAME }}{% endblock %}
-{% block branding %}<a href='{% url 'report_root' %}'>{{ PROJECT_NAME }}{#<span class="version">{{ version }}</span>#}</a>{% endblock %}
+{% block branding %}<a class="brand" href='{% url 'report_root' %}'>{{ PROJECT_NAME }}{#<span class="version">{{ version }}</span>#}</a>{% endblock %}
 
 {% block footer %}
 {% comment %}
+Update: our stupid idea broke when they removed view.get_name anyway. For now I'm going to comment the whole thing out. To bring this back, we'd either have to probably add this to DRF (preferred) or just create our own subclass of the html renderer that adds this form to the renderer's context.
+
 Note: this is kind of stupid in many ways:
 1. There's no block in base.html that wraps around the content, so we have to throw this in the footer.
 2. 'view.get_name ==' is not the right way to do this.
 3. Django Rest framework lets you add POST forms and PUT forms, but not GET forms on list views, which as we're doing
    here, and seems like a nice thing to have in a "browsable api". Maybe we should add this to DRF...
 {% endcomment %}
+
+{% comment%}
 {% if view.get_name == 'Report List' %}
 <div style="padding-bottom: 3em;">
     <div class="well">
@@ -49,4 +53,5 @@ Note: this is kind of stupid in many ways:
     </div>
 </div>
 {% endif %}
+{% endcomment %}
 {% endblock footer %}
